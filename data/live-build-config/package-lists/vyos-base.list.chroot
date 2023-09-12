@@ -3,3 +3,7 @@ gpgv
 gnupg
 vyos-world
 open-vm-tools
+acpi-support-base
+acpi-support
+consolekit
+acpid
