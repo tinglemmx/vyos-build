@@ -378,7 +378,7 @@ RUN wget -O /tmp/open-vmdk-master.zip https://github.com/vmware/open-vmdk/archiv
     make install
 
 # Update live-build
-RUN echo 'deb http://ftp.debian.org/debian stretch main' | tee -a /etc/apt/sources.list.d/stretch.list && \
+RUN echo 'deb http://archive.debian.org/debian stretch main' | tee -a /etc/apt/sources.list.d/stretch.list && \
     apt-get update && apt-get install -y -t stretch \
       live-build && \
     rm -f /etc/apt/sources.list.d/stretch.list && \
