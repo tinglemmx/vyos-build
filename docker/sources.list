@@ -1,0 +1,7 @@
+
+deb [check-valid-until=no]  http://archive.debian.org/debian jessie-backports main
+deb-src [check-valid-until=no] http://archive.debian.org/debian jessie-backports main
+deb [check-valid-until=no]  http://archive.debian.org/debian/ jessie main contrib non-free
+deb-src [check-valid-until=no]  http://archive.debian.org/debian/ jessie main contrib non-free
+deb [check-valid-until=no]  http://archive.debian.org/debian-security jessie/updates main
+deb-src [check-valid-until=no]  http://archive.debian.org/debian/ jessie main
