@@ -16,10 +16,13 @@
 # Must be run with --privileged flag, recommended to run the container with a
 # volume mapped in order to easy export images
 
-FROM debian:jessie
+FROM debian/eol:jessie
 LABEL authors="VyOS Maintainers <maintainers@vyos.io>"
 
 ENV DEBIAN_FRONTEND noninteractive
+
+# change sources.list
+ADD sources.list /etc/apt
 
 # Standard shell should be bash not dash
 RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
@@ -279,9 +282,8 @@ RUN apt-get update && apt-get install -y \
 
 # As there is no Debian Jessie/Stretch package for libcidr available but this
 # is required for ipaddrcheck we have to build it from source
-RUN git clone https://github.com/wikimedia/analytics-libcidr.git && \
-    cd analytics-libcidr && \
-    git checkout 026c611d90a1 && \
+RUN git clone https://github.com/wikimedia-incubator/libcidr.git && \
+    cd libcidr && \
     dpkg-buildpackage -uc -us -tc -b && \
     dpkg -i ../libcidr*.deb
 
